@@ -1,0 +1,23 @@
+<?php
+    // SQL query to retrieve rows from the database table
+$sql = "SELECT * FROM users where published=0";
+$result = $conn->query($sql);
+
+// Check if any rows are returned
+if ($result->num_rows > 0) {
+    // Output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["name"] . "</td>";
+        echo "<td>" . $row["email"] . "/". $row["phone"] . "/</td>";
+        echo "<td>" . $row["payout"] . "</td>";
+        echo "<td><a target='_blank' href='https://ugc-craft.com/profile.php?id=" . $row["id"] . "'>Link</a></td>";
+        echo "<td><button>Одобри</button></td>";
+        echo "</tr>";
+    }
+} else {
+    echo "0 results";
+}
+
+    ?>
