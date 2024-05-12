@@ -94,10 +94,15 @@ if ($result->num_rows > 0) {
     </table>
 </div>
 
-<script>
-         $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
+  <!-- Include jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Include DataTables JavaScript -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <!-- Initialize DataTables -->
+    <script>
+  $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
     </script>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

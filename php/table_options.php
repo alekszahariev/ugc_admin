@@ -14,19 +14,22 @@ if ($id !== null) {
             $statuscode = "1";
             $sql = "UPDATE users SET published = $statuscode WHERE id=$id";
              // Send email
-             $to = $email;
-             $subject = "Hello $name, Your account has been published";
-             $message = "Your account has been published.";
-             $headers = "From: hello@ugc-craft.com";
+            // Check if email address is retrieved successfully
+                if ($email) {
+                    // Send email
+                    $to = $email;
+                    $subject = "Hello $name, Your account has been published";
+                    $message = "Your account has been published.";
+                    $headers = "From: hello@ugc-craft.com";
 
-             if (mail($to, $subject, $message, $headers)) {
-                 echo "Email sent successfully. ";
-             } else {
-                 echo "Error sending email. ";
-             }
-         } else {
-             echo "Error retrieving email address from the database. ";
-         }
+                    if (mail($to, $subject, $message, $headers)) {
+                        echo "Email sent successfully. ";
+                    } else {
+                        echo "Error sending email. ";
+                    }
+                } else {
+                    echo "Error retrieving email address from the database. ";
+                }
 
 
             break;
